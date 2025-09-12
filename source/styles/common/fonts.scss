@@ -1,1 +1,6 @@
-/* здесь подключите шрифты */
+@import "mixins";
+
+$primary-font: "Helvetica", "Arial", sans-serif;
+
+@include font-face("Helvetica", "Helvetica", 400);
+@include font-face("Helvetica", "Helvetica-Bold", 700);

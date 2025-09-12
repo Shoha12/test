@@ -1,0 +1,28 @@
+.color {
+  cursor: pointer;
+}
+
+.color__circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: border-color 0.3s ease;
+}
+
+.color__circle--black {
+  background: $black-product;
+}
+
+.color__circle--blue {
+  background: $blue-product;
+}
+
+.color__circle--brown {
+  background: $brown-product;
+}
+
+.color input:checked + .color__circle {
+  outline: 1px solid $black;
+  outline-offset: 3px;
+}

@@ -1,0 +1,23 @@
+.user-list {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin-left: auto;
+}
+
+.user-list__link {
+  border: none;
+}
+
+.user-list__icon {
+  display: none;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: $black;
+}
+
+.user-list__item:nth-child(4) .user-list__icon {
+  display: block;
+}
