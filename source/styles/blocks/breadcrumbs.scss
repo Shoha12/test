@@ -1,0 +1,30 @@
+.breadcrumbs__list {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs__link {
+  display: flex;
+  text-decoration: none;
+  color: $grey-1;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+
+  &--current {
+    color: $black;
+  }
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  content: "/";
+  color: $grey-1;
+  margin-left: 10px;
+}

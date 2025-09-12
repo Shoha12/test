@@ -1,0 +1,10 @@
+.menu-list {
+  position: absolute;
+  top: -66px;
+  list-style-type: none;
+}
+
+.menu-list__link {
+  text-decoration: none;
+  color: $black;
+}
