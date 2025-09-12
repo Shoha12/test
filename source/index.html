@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="preload" href="#" type="font/woff2" as="font" />
     <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=b741650d-aeca-472d-a761-ce8550b60bb1&lang=ru_RU" type="text/javascript"></script>
   </head>
   <body class="page__body">
     <div class="page__container">
@@ -91,7 +92,7 @@
             <span class="cart__descr">3 товара на сумму <br> 25 000 ₽</span>
 
             <ul class="cart-list">
-              <li class="cart-list__item">
+              <li class="cart-list__item" data-id="1">
                 <picture>
                   <img class="cart-list__img" src="images/jacket-mobile2x@1x.png" srcset="images/jacket-mobile2x@2x.png 2x" alt="Куртка" width="90px" height="111px">
                 </picture>
@@ -151,18 +152,31 @@
                 </fieldset>
 
                 <div class="cart-list__prices">
-                  <span class="cart-list__old-price">12 000 ₽</span>
-                  <span class="cart-list__price">10 000 ₽</span>
-                  <div class="cart-list__qty">
-                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--minus">-</button>
-                    <input type="number" class="cart-list__qty-input" value="2" min="1">
-                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--plus">+</button>
+                  <div class="cart-list__price-wrapper">
+                    <span class="cart-list__old-price">12 000 ₽</span>
+                    <span class="cart-list__price">10 000 ₽</span>
                   </div>
-                  <span class="cart-list__old-total">24 000 ₽</span>
-                  <span class="cart-list__total">20 000 ₽</span>
+                  <div class="cart-list__qty">
+                    <label for="product-qty-1" class="visually-hidden">Количество товара</label>
+                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--minus">
+                      <svg class="cart-list__qty-icon">
+                        <use href="icons/stack.svg#minus"></use>
+                      </svg>
+                    </button>
+                    <input type="text" class="cart-list__qty-input" id="product-qty-1" value="2" min="1" readonly>
+                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--plus">
+                      <svg class="cart-list__qty-icon">
+                        <use href="icons/stack.svg#plus"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="cart-list__price-wrapper">
+                    <span class="cart-list__old-total">24 000 ₽</span>
+                    <span class="cart-list__total">20 000 ₽</span>
+                  </div>
                 </div>
               </li>
-              <li class="cart-list__item">
+              <li class="cart-list__item" data-id="3">
                 <picture>
                   <img class="cart-list__img" src="images/jacket-mobile2x@1x.png" srcset="images/jacket-mobile2x@2x.png 2x" alt="Куртка" width="90px" height="111px">
                 </picture>
@@ -217,18 +231,31 @@
                 </fieldset>
 
                 <div class="cart-list__prices">
-                  <span class="cart-list__old-price">12 000 ₽</span>
-                  <span class="cart-list__price">10 000 ₽</span>
-                  <div class="cart-list__qty">
-                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--minus">-</button>
-                    <input type="number" class="cart-list__qty-input" value="1" min="1">
-                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--plus">+</button>
+                  <div class="cart-list__price-wrapper">
+                    <span class="cart-list__old-price">12 000 ₽</span>
+                    <span class="cart-list__price">10 000 ₽</span>
                   </div>
-                  <span class="cart-list__old-total">24 000 ₽</span>
-                  <span class="cart-list__total">20 000 ₽</span>
+                  <div class="cart-list__qty">
+                    <label for="product-qty-1" class="visually-hidden">Количество товара</label>
+                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--minus">
+                      <svg class="cart-list__qty-icon">
+                        <use href="icons/stack.svg#minus"></use>
+                      </svg>
+                    </button>
+                    <input type="text" class="cart-list__qty-input" id="product-qty-1" value="1" min="1" readonly>
+                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--plus">
+                      <svg class="cart-list__qty-icon">
+                        <use href="icons/stack.svg#plus"></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="cart-list__price-wrapper">
+                    <span class="cart-list__old-total">24 000 ₽</span>
+                    <span class="cart-list__total">20 000 ₽</span>
+                  </div>
                 </div>
               </li>
-              <li class="cart-list__item">
+              <li class="cart-list__item" data-id="2">
                 <picture>
                   <img class="cart-list__img" src="images/hat-mobile2x@1x.png" srcset="images/hat-mobile2x@2x.png 2x" alt="Шапка" width="90px" height="111px">
                 </picture>
@@ -277,66 +304,80 @@
                 <div class="cart-list__prices">
                   <span class="cart-list__price">500 ₽</span>
                   <div class="cart-list__qty">
-                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--minus">-</button>
-                    <input type="number" class="cart-list__qty-input" value="1" min="1">
-                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--plus">+</button>
+                    <label for="product-qty-1" class="visually-hidden">Количество товара</label>
+                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--minus">
+                      <svg class="cart-list__qty-icon">
+                        <use href="icons/stack.svg#minus"></use>
+                      </svg>
+                    </button>
+                    <input type="text" class="cart-list__qty-input" id="product-qty-1" value="1" min="1" readonly>
+                    <button type="button" class="cart-list__qty-btn cart-list__qty-btn--plus">
+                      <svg class="cart-list__qty-icon">
+                        <use href="icons/stack.svg#plus"></use>
+                      </svg>
+                    </button>
                   </div>
                   <span class="cart-list__total">500 ₽</span>
                 </div>
               </li>
             </ul>
           </div>
+        </section>
 
-          <aside class="cart__aside" aria-labelledby="cart-summary-title">
-            <h2 id="cart-summary-title" class="cart__aside-title">Итоги заказа</h2>
+        <aside class="cart__aside" aria-labelledby="cart-summary-title">
+            <h2 id="cart-summary-title" class="visually-hidden ">Итоги заказа</h2>
 
             <div class="cart__info">
               <p class="cart__row">
                 <span class="cart__label">Товары</span>
-                <span class="cart__aside-price">24 500 ₽</span>
+                <span class="cart__aside-price cart__aside-price--total">24 500 ₽</span>
               </p>
 
-              <p class="cart__row">
-                <span class="cart__label">Скидка</span>
-                <span class="cart__aside-price cart__aside-price--discount">− 4 500 ₽</span>
-              </p>
+              <div class="cart__divider">
+                <p class="cart__row">
+                  <span class="cart__label">Скидка</span>
+                  <span class="cart__aside-price cart__aside-price--discount">− 4 500 ₽</span>
+                </p>
 
-              <p class="cart__row">
-                <span class="cart__label">Акции</span>
-                <span class="cart__aside-price cart__aside-price--action">− 4 000 ₽</span>
-              </p>
+                <p class="cart__row">
+                  <span class="cart__label cart__label--action">Акции</span>
+                  <span class="cart__aside-price cart__aside-price--action">− 4 000 ₽</span>
+                </p>
 
-              <p class="cart__row">
-                <span class="cart__label">Промокод</span>
-                <span class="cart__aside-price cart__aside-price--promo">− 500 ₽</span>
-              </p>
+                <p class="cart__row cart__row--promo">
+                  <span class="cart__label cart__label--promo">Промокод</span>
+                  <span class="cart__aside-price cart__aside-price--promo">− 500 ₽</span>
+                </p>
+              </div>
 
               <p class="cart__row">
                 <span class="cart__label">Доставка</span>
-                <span class="cart__aside-price">200 ₽</span>
+                <span class="cart__aside-price cart__aside-price--delivery">200 ₽</span>
               </p>
             </div>
 
             <div class="cart__pickup">
               <h3 class="visually-hidden">Получение товара</h3>
 
-              <label class="toggle">
-                <input type="checkbox" class="toggle__input">
-                <span class="toggle__slider"></span>
-                <span class="toggle__text">Получить товар со склада</span>
+              <label class="cart__pickup-toggle">
+                <span class="cart__pickup-text">Получить товар со склада</span>
+                <input type="checkbox" class="cart__pickup-input visually-hidden">
+                <span class="cart__pickup-slider"></span>
               </label>
 
               <p class="cart__pickup-description">Сроки получения могут измениться</p>
             </div>
 
             <div class="cart__summary">
-              <p class="cart__label">Итого:</p>
+              <p class="cart__summary-label">Итого:</p>
               <p class="cart__summary-price"><strong>20 700 ₽</strong></p>
             </div>
 
             <div class="cart__promo">
-              <input type="text" class="promo-input" placeholder="Введите промокод">
-              <button type="submit">Применить</button>
+              <input type="text" class="cart__promo-input" id="promo" placeholder=" ">
+              <label class="cart__promo-label" for="promo">Введите промокод</label>
+              <button class="cart__promo-button" type="button">Применить</button>
+              <span class="cart__promo-message"></span>
             </div>
 
             <button type="submit" form="form" class="cart__promo-btn">Оформить заказ</button>
@@ -344,70 +385,82 @@
             <p class="cart__politic">
               Нажимая кнопку “Оформить заказ”, Вы соглашаетесь с <a class="cart__politic-link" href="#">политикой конфиденциальности</a>.
             </p>
-          </aside>
-        </section>
+        </aside>
 
         <form action="#" class="form">
-            <h2 class="form__title">Контактные данные</h2>
-            <div class="form__field">
-              <input type="text" id="firstname" name="firstname" class="form__field-input" placeholder=" " required>
-              <label for="firstname" class="form__field-label">Имя</label>
-            </div>
+            <div class="form__contacts">
+              <h2 class="form__title">Контактные данные</h2>
+              <div class="form__field">
+                <input type="text" id="firstname" name="firstname" class="form__field-input" placeholder=" " required>
+                <label for="firstname" class="form__field-label">Имя</label>
+              </div>
 
-            <div class="form__field">
-              <input type="text" id="lastname" name="lastname" class="form__field-input" placeholder=" " required>
-              <label for="lastname" class="form__field-label">Фамилия</label>
-            </div>
+              <div class="form__field">
+                <input type="text" id="lastname" name="lastname" class="form__field-input" placeholder=" " required>
+                <label for="lastname" class="form__field-label">Фамилия</label>
+              </div>
 
-            <div class="form__field">
-              <input type="tel" id="phone" name="phone" class="form__field-input" placeholder=" " required>
-              <label for="phone" class="form__field-label">Телефон</label>
-            </div>
+              <div class="form__field">
+                <input type="tel" id="phone" name="phone" class="form__field-input" placeholder=" " required>
+                <label for="phone" class="form__field-label">Телефон</label>
+              </div>
 
-            <div class="form__field">
-              <input type="email" id="email" name="email" class="form__field-input" placeholder=" " required>
-              <label for="email" class="form__field-label">Email</label>
-            </div>
+              <div class="form__field">
+                <input type="email" id="email" name="email" class="form__field-input" placeholder=" " required>
+                <label for="email" class="form__field-label">Email</label>
+              </div>
 
-            <div class="form__field form__field--address">
-              <input type="text" id="address" name="address" class="form__field-input" placeholder=" " required>
-              <label for="address" class="form__field-label">Адрес доставки</label>
-              <button type="button" class="form__field-icon" aria-label="Поиск адреса">
-                <svg width="18" height="18">
-                  <use href="icons/stack.svg#search"></use>
-                </svg>
-              </button>
+              <div class="form__field form__field--address">
+                <textarea id="address" name="address" class="form__field-input" rows="1" placeholder=" " required></textarea>
+                <label for="address" class="form__field-label">Адрес доставки</label>
+                <button id="search-address" type="button" class="form__field-icon" aria-label="Поиск адреса">
+                  <svg width="18" height="18">
+                    <use href="icons/stack.svg#search"></use>
+                  </svg>
+                </button>
+                <ul id="suggestions" class="suggestions"></ul>
+              </div>
+
+              <div id="map" class="form__map"></div>
             </div>
 
             <fieldset class="form__payment">
               <legend class="form__payment-title">Оплата</legend>
 
               <label class="form__payment-option">
-                <input type="radio" name="payment" value="cash" checked>
-                <span class="form__payment-custom"></span>
+                <input class="visually-hidden" type="radio" name="payment" value="cash" checked>
+                <span class="form__payment-custom">
+                  <span class="form__payment-checkmark"></span>
+                </span>
                 Наличными курьеру
               </label>
 
               <label class="form__payment-option">
-                <input type="radio" name="payment" value="card-courier">
-                <span class="form__payment-custom"></span>
+                <input class="visually-hidden" type="radio" name="payment" value="card-courier">
+                <span class="form__payment-custom">
+                  <span class="form__payment-checkmark"></span>
+                </span>
                 Картой курьеру
               </label>
 
               <label class="form__payment-option">
-                <input type="radio" name="payment" value="card-online">
-                <span class="form__payment-custom"></span>
+                <input class="visually-hidden" type="radio" name="payment" value="card-online">
+                <span class="form__payment-custom">
+                  <span class="form__payment-checkmark"></span>
+                </span>
                 Картой онлайн
               </label>
             </fieldset>
 
             <div class="form__comment">
-              <textarea id="comment" name="comment" placeholder="Комментарий к заказу"></textarea>
+              <h2 class="form__comment-title">Комментарий к заказу</h2>
+              <div class="form__comment-wrapper">
+                <textarea class="form__comment-area" id="comment" name="comment" placeholder=" "></textarea>
+              <label for="comment" class="form__comment-label">Комментарий к заказу</label>
+              </div>
               <small class="form__comment-hint">Использовано 0/142 символов</small>
             </div>
-          </form>
-
-          <div id="map" class="map"></div>
+        </form>
       </main>
     </div>
     <script src="scripts/index.js" type="module"></script>
