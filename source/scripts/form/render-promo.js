@@ -1,7 +1,6 @@
 import renderSummary from "./render-summary";
-import { cart } from "./cart";
 
-export default function initPromo() {
+export default function initPromo(promo, cart) {
   const promoInput = document.querySelector('.cart__promo-input');
   const promoBtn = document.querySelector('.cart__promo-button');
   const promoMessage = document.querySelector('.cart__promo-message');
@@ -12,12 +11,16 @@ export default function initPromo() {
       promoBtn.classList.add('visible');
     } else {
       promoBtn.classList.remove('visible');
+      promoMessage.textContent = '';
     }
   });
 
-  const promoCodes = {
-    B6D9FC: 500,
-  };
+  promoInput.addEventListener('blur', () => {
+    if (promoInput.value.trim() === '') {
+      promoBtn.classList.remove('visible');
+      promoMessage.textContent = '';
+    }
+  });
 
   let appliedPromo = null;
 
@@ -28,19 +31,27 @@ export default function initPromo() {
     promoMessage.className = 'cart__promo-message';
     appliedPromo = null;
 
-    if (promoCodes[code]) {
-      appliedPromo = promoCodes[code];
+    if (promo[code]) {
+      const promoData = promo[code];
+      let promoValue = 0;
+
+      if (promoData.type === "fixed") {
+        promoValue = promoData.discount;
+      } else if (promoData.type === "percent") {
+        const totalCurrent = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        promoValue = Math.floor(totalCurrent * (promoData.discount / 100));
+      }
+
+      appliedPromo = promoValue;
       renderSummary(cart, appliedPromo);
 
       promoMessage.textContent = `${code} - купон применен`;
       promoMessage.classList.add('cart__promo--success');
       promoRow.style.display = 'flex';
     } else {
-      renderSummary(cart, appliedPromo);
-
-      promoMessage.textContent = `${code} - купон не найден`;
+      promoMessage.textContent = `${code} - купон не применен`;
       promoMessage.classList.add('cart__promo--error');
-      promoRow.style.display = 'none';
+      promoRow.style.display = 'flex';
     }
   });
 }

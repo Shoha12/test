@@ -27,6 +27,42 @@
   &:last-child {
     border-bottom: 1px solid $grey-2;
   }
+
+  &--removed {
+    display: block;
+  }
+}
+
+.cart-list__divider {
+  background-color: $grey-3;
+  padding: 12px 12px 12px 8px;
+}
+
+.cart-list__placeholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.cart-list__restore {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  font-family: inherit;
+}
+
+.cart-list__placeholder-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $grey-1;
+
+  &--bold {
+    font-weight: 700;
+  }
 }
 
 .cart-list__icon {

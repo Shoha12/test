@@ -6,6 +6,18 @@
   background-color: transparent;
   cursor: pointer;
   margin-left: 24px;
+
+  &--active {
+    .burger__line:nth-child(1) {
+      width: 22px;
+      transform: rotate(-45deg) translate(1px, 10px);;
+
+    }
+    .burger__line:nth-child(2) {
+      width: 22px;
+      transform: rotate(45deg) translate(-5px, -2px);;
+    }
+  }
 }
 
 .burger__line {
