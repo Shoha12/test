@@ -35,12 +35,24 @@
   font-weight: 400;
   line-height: 21px;
   border: 1px solid $grey-2;
+
+  &--error {
+    border: 1px solid $error;
+  }
+}
+
+.error {
+  color: $error;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  margin-top: 4px;
 }
 
 .form__field-label {
   position: absolute;
   left: 12px;
-  top: 50%;
+  top: 25px;
   transform: translateY(-50%);
   font-size: 12px;
   font-weight: 400;
@@ -71,6 +83,16 @@
   left: 8px;
   font-size: 10px;
   color: $grey-1;
+  background: $white;
+  padding: 0 4px;
+}
+
+.form__field-input:focus + .form__field-label--error,
+.form__field-input:not(:placeholder-shown) + .form__field-label--error {
+  top: 0;
+  left: 8px;
+  font-size: 10px;
+  color: $error;
   background: $white;
   padding: 0 4px;
 }

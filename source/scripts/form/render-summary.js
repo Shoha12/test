@@ -1,4 +1,4 @@
-export default function renderSummary(cart, appliedPromo = null) {
+export default function renderSummary(cart, appliedPromo = { code: '', value: 0 }) {
   let totalCurrent = 0;
   let totalOld = 0;
 
@@ -11,19 +11,32 @@ export default function renderSummary(cart, appliedPromo = null) {
     }
   });
 
-  const discount = totalOld - totalCurrent + appliedPromo;
-  const action = totalOld - totalCurrent;
-  const delivery = 200;
-  const grandTotal = totalCurrent + delivery - appliedPromo;
 
-  const productsEl = document.querySelector('.cart__aside-price--total');
-  if (productsEl) {
-    productsEl.textContent = totalOld.toLocaleString() + ' ₽';
-  }
+  const promoCode = appliedPromo.code || '';
+  const promoValue = Number(appliedPromo) || 0;
+  const action = totalOld - totalCurrent;
+  const discount = action + promoValue;
+  const delivery = 200;
+  const grandTotal = totalCurrent + delivery - promoValue;
 
   const discountEl = document.querySelector('.cart__aside-price--discount');
   if (discountEl) {
     discountEl.textContent = discount > 0 ? `− ${discount.toLocaleString()} ₽` : '0 ₽';
+  }
+
+  const actionEl = document.querySelector('.cart__aside-price--action');
+  if (actionEl) {
+    actionEl.textContent = action > 0 ? `− ${action.toLocaleString()} ₽` : '0 ₽';
+  }
+
+  const promoEl = document.querySelector('.cart__aside-price--promo');
+  if (promoEl) {
+    promoEl.textContent = promoValue > 0 ? `− ${promoValue.toLocaleString()} ₽` : '0 ₽';
+  }
+
+  const productsEl = document.querySelector('.cart__aside-price--total');
+  if (productsEl) {
+    productsEl.textContent = totalOld.toLocaleString() + ' ₽';
   }
 
   const deliveryEl = document.querySelector('.cart__aside-price--delivery');
@@ -31,13 +44,19 @@ export default function renderSummary(cart, appliedPromo = null) {
     deliveryEl.textContent = delivery.toLocaleString() + ' ₽';
   }
 
-  const totalEl = document.querySelector('.cart__summary-price strong');
+  const totalEl = document.querySelectorAll('.cart__summary-price');
   if (totalEl) {
-    totalEl.textContent = grandTotal.toLocaleString() + ' ₽';
+    totalEl.forEach(el => {
+      el.textContent = grandTotal.toLocaleString() + ' ₽';
+    });
   }
 
-  const actionEl = document.querySelector('.cart__aside-price--action');
-  if(actionEl) {
-    actionEl.textContent = '- ' + action.toLocaleString() + ' ₽';
-  }
+  return {
+    promoCode,
+    promoValue,
+    grandTotal,
+    discount,
+    action,
+    delivery
+  };
 }
