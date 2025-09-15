@@ -1,27 +1,27 @@
 import renderCart from './render-cart';
 import renderSummary from './render-summary';
 
-
 export default function initQty(cart) {
-  document.querySelectorAll(".cart-list__item").forEach((itemEl) => {
-    const id = Number(itemEl.dataset.id);
-    const minusBtn = itemEl.querySelector(".cart-list__qty-btn--minus");
-    const plusBtn = itemEl.querySelector(".cart-list__qty-btn--plus");
+  const cartList = document.querySelector('.cart-list');
 
-    minusBtn.addEventListener("click", () => {
-      const product = cart.find((p) => p.id === id);
+  cartList.addEventListener("click", (e) => {
+    const btn = e.target.closest(".cart-list__qty-btn");
+
+    const itemEl = btn.closest(".cart-list__item");
+    const id = Number(itemEl.dataset.id);
+    const product = cart.find((p) => p.id === id);
+
+    if (btn.classList.contains("cart-list__qty-btn--minus")) {
       if (product.qty > 1) {
         product.qty--;
-        renderCart(cart);
-        renderSummary(cart);
       }
-    });
+    }
 
-    plusBtn.addEventListener("click", () => {
-      const product = cart.find((p) => p.id === id);
+    if (btn.classList.contains("cart-list__qty-btn--plus")) {
       product.qty++;
-      renderCart(cart);
-      renderSummary(cart);
-    });
+    }
+
+    renderCart(cart);
+    renderSummary(cart);
   });
 }

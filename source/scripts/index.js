@@ -13,6 +13,7 @@ import formSubmit from './form/form';
 import checkCommentValue from './form/render-comment';
 import initBurger from './burger/burger';
 import initMove from './map/move-map';
+import initUpButton from './scroll/scroll';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const [cart, promo] = await Promise.all([
@@ -32,4 +33,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   formSubmit(formEl, cart);
   initBurger();
   initMove();
+  initUpButton();
 });
