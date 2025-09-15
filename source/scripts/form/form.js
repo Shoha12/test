@@ -57,9 +57,12 @@ export default function formSubmit(form, cart) {
 
     setSubmitButtonState(true);
 
-    fetch("https://httpbin.org/post", {
+    fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
-      body: data,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     })
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
