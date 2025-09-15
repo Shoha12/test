@@ -12,6 +12,7 @@ import initRemoveCart from './form/remove-cart';
 import formSubmit from './form/form';
 import checkCommentValue from './form/render-comment';
 import initBurger from './burger/burger';
+import initMove from './map/move-map';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const [cart, promo] = await Promise.all([
@@ -30,4 +31,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   const formEl = document.querySelector('#form');
   formSubmit(formEl, cart);
   initBurger();
+  initMove();
 });

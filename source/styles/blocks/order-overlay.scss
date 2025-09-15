@@ -1,0 +1,36 @@
+.order-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.order-overlay.active {
+  display: flex;
+}
+
+.order-overlay__content {
+  background: $white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.order-overlay__close {
+  border: none;
+  background-color: $black;
+  color: $white;
+  padding: 16px 12px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  font-family: inherit;
+  margin-top: 10px;
+}
