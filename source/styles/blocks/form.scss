@@ -159,7 +159,7 @@
   line-height: 1.4;
 }
 
-.form__field--address .form__field-input:not(:placeholder-shown) ~ .form__field-btn .form__field-icon-text {
+.form__field-input:focus ~ .form__field-btn .form__field-icon-text {
   display: inline;
 }
 

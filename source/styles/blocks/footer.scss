@@ -1,0 +1,194 @@
+.footer {
+  display: grid;
+  padding: 0 16px;
+  grid-template-columns: 288px;
+  gap: 20px;
+
+  @media (min-width: $tablet) {
+    padding: 0 32px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "subscribe subscribe subscribe subscribe"
+    "info info info info"
+    "end  end end end";
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 120px 15px;
+    grid-template-columns: 416px auto;
+    column-gap: 238px;
+    row-gap: 100px;
+    grid-template-areas: "subscribe  info"
+    "end end";
+  }
+}
+
+.footer__wrapper {
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  gap: 5px;
+
+  @media (min-width: $desktop) {
+    gap: 10px;
+  }
+}
+
+.footer__subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: $tablet) {
+    grid-area: subscribe;
+  }
+
+  @media (min-width: $desktop) {
+    gap: 40px;
+  }
+}
+
+.footer__input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  padding: 12px 135px 12px 15px;
+
+  @media (min-width: $desktop) {
+    padding: 13px 130px 13px 20px;
+  }
+}
+
+.footer__label {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 18px;
+
+  @media (min-width: $desktop) {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}
+
+.footer__btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  right: 5px;
+  top: 17px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  border: none;
+  background-color: transparent;
+
+  @media (min-width: $desktop) {
+    right: 20px;
+  }
+}
+
+.footer__icon {
+  color: $grey-1;
+  border: none;
+}
+
+.footer__icon-text {
+  display: none;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: $black;
+}
+
+.footer__input:focus ~ .footer__btn .footer__icon-text {
+  display: inline;
+}
+
+.footer__politic {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: $grey-1;
+
+  @media (min-width: $desktop) {
+    font-size: 14px;
+  }
+}
+
+.footer__politic > a {
+  color: $grey-1;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    grid-area: info;
+  }
+}
+
+.footer__end {
+  @media (min-width: $tablet) {
+    grid-area: end;
+  }
+}
+
+.footer__links {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer__links-link {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: $grey-1;
+
+  @media (min-width: $tablet) {
+    font-size: 12px;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 14px;
+  }
+}
+
+.footer__links-icon {
+  color: $black;
+  width: 22px;
+  height: 22px;
+}
+
+.footer__links-body {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.footer__links-text {
+  color: $black;
+}
+
+.footer__links-author {
+  color: $black;
+}
