@@ -12,4 +12,3 @@ export default function checkCommentValue() {
 
   commentArea.addEventListener('input', updateHint);
 }
-

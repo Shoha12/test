@@ -11,9 +11,18 @@
   line-height: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $grey-1;
+  }
 }
 
 .size input:checked + .size__btn {
   background: $black;
   color: $white;
+}
+
+.size input:disabled + .size__btn {
+  background-color: $grey-3;
+  color: $grey-2;
 }

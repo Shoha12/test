@@ -4,11 +4,8 @@ export default function initAddressSearch() {
   const searchBtn = document.getElementById('search-address');
   const suggestionsList = document.getElementById("suggestions");
 
-  searchBtn.addEventListener('click', async () => {
-    const query = input.value.trim();
-
-    if(!query) return;
-
+  async function fetchSuggestions(query) {
+    if (!query) return;
 
     const response = await fetch('https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address', {
       method: 'POST',
@@ -23,17 +20,23 @@ export default function initAddressSearch() {
     const data = await response.json();
     suggestionsList.innerHTML = '';
 
-    if(data.suggestions.length === 0) {
+    if (data.suggestions.length === 0) {
       const li = document.createElement("li");
       li.textContent = "Адрес не найден";
       suggestionsList.appendChild(li);
     } else {
-
-      data.suggestions.forEach((suggestion) => {
+      data.suggestions.forEach((suggestion, index) => {
         const li = document.createElement('li');
+        li.classList.add('suggestions__item');
         li.textContent = suggestion.value;
 
+        if(index === 0) {
+          li.classList.add('suggestions__item--active');
+        }
+
         li.addEventListener('click', () => {
+          document.querySelectorAll('.suggestions__item').forEach(el => el.classList.remove('suggestions__item--active'));
+          li.classList.add('suggestions__item--active');
           input.value = suggestion.value;
           suggestionsList.style.display = 'none';
 
@@ -45,9 +48,25 @@ export default function initAddressSearch() {
             window.myMap.setCenter([lat, lon], 16);
           }
         });
+
         suggestionsList.appendChild(li);
       });
     }
+
     suggestionsList.style.display = "block";
+  }
+
+  searchBtn.addEventListener('click', () => {
+    const query = input.value.trim();
+    fetchSuggestions(query);
+  });
+
+  input.addEventListener('input', () => {
+    const query = input.value.trim();
+    if (query.length > 2) {
+      fetchSuggestions(query);
+    } else {
+      suggestionsList.style.display = "none";
+    }
   });
 }

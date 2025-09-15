@@ -5,4 +5,13 @@
     "cart"
     "form"
     "aside";
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 760px auto;
+    grid-template-areas:
+      "header header"
+      "cart   aside"
+      "form   map";
+    gap: 40px;
+  }
 }

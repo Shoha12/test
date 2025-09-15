@@ -1,6 +1,38 @@
 .cart-list {
   display: grid;
   list-style-type: none;
+
+  @media (min-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+.cart-list__main {
+  display: contents;
+
+  @media (min-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.cart-list__body {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 3px;
+
+  @media (min-width: $desktop) {
+    gap: 10px;
+  }
 }
 
 .cart-list__header {
@@ -8,21 +40,36 @@
   grid-area: header;
   grid-template-columns: 1fr 26px;
   align-items: start;
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cart-list__item {
   display: grid;
   grid-template-columns: 90px 1fr;
   grid-template-areas:
-    "img header"
-    "descr descr"
-    "sizes sizes"
-    "colors colors"
+    "img    header"
+    "body   body"
     "prices prices";
   row-gap: 16px;
   padding: 16px 0;
   align-items: start;
   border-top: 1px solid $grey-2;
+
+  &:nth-of-type(3) {
+    @media (min-width: $desktop) {
+      grid-template-columns: 130px 253px 315px 22px;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    position: relative;
+    grid-template-columns: 130px 197px 371px 22px;
+    gap: 10px;
+    grid-template-areas: "img main prices"
+  }
 
   &:last-child {
     border-bottom: 1px solid $grey-2;
@@ -36,6 +83,12 @@
 .cart-list__divider {
   background-color: $grey-3;
   padding: 12px 12px 12px 8px;
+
+  @media (min-width: $desktop) {
+    padding: 15px 25px;
+    display: flex;
+    gap: 25px;
+  }
 }
 
 .cart-list__placeholder {
@@ -52,6 +105,10 @@
   font-weight: 400;
   line-height: 18px;
   font-family: inherit;
+
+  @media (min-width: $desktop) {
+    align-self: start;
+  }
 }
 
 .cart-list__placeholder-text {
@@ -75,10 +132,29 @@
   background-color: transparent;
   border: none;
   margin-left: 4px;
+  cursor: pointer;
+
+  @media (min-width: $desktop) {
+    position: absolute;
+    right: 0;
+    top: 15px;
+  }
+
+  &-final {
+    @media (min-width: $desktop) {
+      top: 30px;
+      right: 5px;
+    }
+  }
 }
 
 .cart-list__img {
   grid-area: img;
+
+  @media (min-width: $desktop) {
+    display: block;
+    margin-right: 10px;
+  }
 }
 
 .cart-list__title {
@@ -86,15 +162,25 @@
   font-weight: 400;
   line-height: 18px;
   margin-left: 12px;
+
+  @media (min-width: $desktop) {
+    margin-left: 0;
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .cart-list__descr {
   margin-top: -8px;
-  grid-area: descr;
+
+  @media (min-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .cart-list__sizes {
-  grid-area: sizes;
   border: none;
   display: flex;
   gap: 8px;
@@ -103,7 +189,6 @@
 .cart-list__colors {
   display: flex;
   gap: 16px;
-  grid-area: colors;
   border: none;
 }
 
@@ -112,6 +197,11 @@
   align-items: center;
   justify-content: space-between;
   grid-area: prices;
+
+  @media (min-width: $desktop) {
+    gap: 30px;
+    justify-content: start;
+  }
 }
 
 .cart-list__price-wrapper {
@@ -135,10 +225,6 @@
   color: $black;
 }
 
-.cart-list__qty {
-  grid-area: qty;
-}
-
 .cart-list__old-total {
   font-size: 12px;
   color: $grey-1;
@@ -155,6 +241,7 @@
 }
 
 .cart-list__qty {
+  grid-area: qty;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -190,6 +277,19 @@
   background: transparent;
   cursor: pointer;
   font-family: inherit;
+
+  &:hover .cart-list__qty-icon {
+    color: $grey-1;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+
+    .cart-list__qty-icon {
+      color: $grey-2;
+    }
+  }
 }
 
 .cart-list__article {
@@ -199,7 +299,6 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 15px;
-  margin-bottom: 4px;
 }
 
 .cart-list__mean {
