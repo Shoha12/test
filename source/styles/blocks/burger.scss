@@ -10,18 +10,18 @@
   @media (min-width: $desktop) {
     display: none;
   }
-}
 
-.burger__line {
-  display: block;
-  width: 32px;
-  height: 2px;
-  background-color: $black;
-  margin: 9px 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  &__line {
+    display: block;
+    width: 32px;
+    height: 2px;
+    background-color: $black;
+    margin: 9px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 
-  &:nth-child(2) {
-    width: 18px;
-    margin-left: auto;
+    &:nth-child(2) {
+      width: 18px;
+      margin-left: auto;
+    }
   }
 }

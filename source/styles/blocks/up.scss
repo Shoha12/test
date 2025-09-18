@@ -11,21 +11,19 @@
     bottom: 50px;
     right: 50px;
   }
-}
 
-.up-icon {
-  color: $grey-2;
-  width: 40px;
-  height: 40px;
-
-  @media (min-width: $desktop) {
+  &-icon {
+    color: $grey-2;
     width: 40px;
     height: 40px;
+
+    @media (min-width: $desktop) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &:hover &-icon {
+    color: $grey-1;
   }
 }
-
-
-.up:hover .up-icon {
-  color: $grey-1;
-}
-
