@@ -1,3 +1,5 @@
+import {pluralize} from '../utils';
+
 export default function initCart(cart) {
   const items = document.querySelectorAll('.cart-list__item');
 
@@ -44,7 +46,8 @@ export default function initCart(cart) {
 
   const descrEl = document.querySelector('.cart__descr');
   if (descrEl) {
-    descrEl.innerHTML = `${totalQty} товара <br> на сумму <span class="cart__summary-price">${totalPrice.toLocaleString('ru-RU')} ₽</span>`;
+    const word = pluralize(totalQty, 'товар', 'товара', 'товаров');
+    descrEl.innerHTML = `${totalQty} ${word} <br> на сумму <span class="cart__summary-price">${totalPrice.toLocaleString('ru-RU')}\u00A0₽</span>`;
   }
 
   return cart.map(p => ({

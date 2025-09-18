@@ -17,104 +17,104 @@
   @media (min-width: $desktop) {
     display: none;
   }
-}
 
-.mobile-menu__close {
-  display: none;
-
-  &--active {
-    display: block;
-    position: absolute;
-    border: none;
-    top: 15px;
-    left: -35px;
-    background-color: $black;
-    border-radius: 5px;
+  &.active {
+    transform: translateX(0);
   }
-}
 
-.mobile-menu.active {
-  transform: translateX(0);
-}
+  &__close {
+    display: none;
 
-.mobile-menu__list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  list-style-type: none;
-  margin-bottom: 20px;
-
-  &--hidden {
-    @media (min-width: $tablet) {
-      display: none;
+    &--active {
+      display: block;
+      position: absolute;
+      border: none;
+      top: 15px;
+      left: -35px;
+      background-color: $black;
+      border-radius: 5px;
     }
   }
-}
 
-.mobile-menu__item {
-  display: flex;
-  background-color: $grey-3;
-  border-radius: 10px;
-
-  &--user {
-    background-color: $black;
-  }
-}
-
-.mobile-menu__link {
-  display: flex;
-  padding: 15px;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: $black;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-
-  &--user {
+  &__list {
     display: flex;
-    gap: 10px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+    flex-direction: column;
+    gap: 15px;
+    list-style-type: none;
+    margin-bottom: 20px;
+
+    &--hidden {
+      @media (min-width: $tablet) {
+        display: none;
+      }
+    }
   }
-}
 
-.mobile-menu__mobile-text {
-  color: $white;
-}
+  &__item {
+    display: flex;
+    background-color: $grey-3;
+    border-radius: 10px;
 
-.mobile-menu__account {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: $black;
-  color: $white;
-  text-decoration: none;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
+    &--user {
+      background-color: $black;
+    }
+  }
 
-.mobile-menu__account:hover {
-  background: $black;
-}
+  &__link {
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: $black;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
 
-.mobile-menu__icon {
-  width: 20px;
-  height: 20px;
-  color: $black;
+    &--user {
+      display: flex;
+      gap: 10px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
 
-  &--user {
+  &__mobile-text {
     color: $white;
   }
 
-  &--close {
-    width: 35px;
-    height: 35px;
+  &__account {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: $black;
     color: $white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    justify-content: center;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: $black;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    color: $black;
+
+    &--user {
+      color: $white;
+    }
+
+    &--close {
+      width: 35px;
+      height: 35px;
+      color: $white;
+    }
   }
 }

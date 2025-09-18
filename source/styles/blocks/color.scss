@@ -1,46 +1,46 @@
 .color {
   cursor: pointer;
 
-  &:hover .color__wrapper {
+  &:hover &__wrapper {
     border: 1px solid $grey-2;
   }
-}
 
-.color__circle {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  transition: border-color 0.3s ease;
+  &__circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: border-color 0.3s ease;
 
-  &--black {
-    background: $black-product;
+    &--black {
+      background: $black-product;
+    }
+
+    &--blue {
+      background: $blue-product;
+    }
+
+    &--brown {
+      background: $brown-product;
+    }
   }
 
-  &--blue {
-    background: $blue-product;
+  &__wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
   }
 
-  &--brown {
-    background: $brown-product;
+  input:checked + &__wrapper {
+    border: 1px solid $black;
   }
-}
 
-.color__wrapper {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.color input:checked + .color__wrapper {
-  border: 1px solid $black;
-}
-
-.color input:focus-within + .color__wrapper {
-  outline: 1px solid $black;
+  input:focus-within + &__wrapper {
+    outline: 1px solid $black;
+  }
 }

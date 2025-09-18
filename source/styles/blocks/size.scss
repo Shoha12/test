@@ -1,32 +1,36 @@
-.size__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  background: $grey-3;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.size {
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: $grey-3;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-  &:hover {
-    background-color: $grey-1;
+    &:hover {
+      background-color: $grey-1;
+    }
   }
-}
 
-.size input:checked + .size__btn {
-  background: $black;
-  color: $white;
-}
+  input {
+    &:checked + .size__btn {
+      background: $black;
+      color: $white;
+    }
 
-.size input:disabled + .size__btn {
-  background-color: $grey-3;
-  color: $grey-2;
-}
+    &:disabled + .size__btn {
+      background-color: $grey-3;
+      color: $grey-2;
+    }
 
-.size input:focus-within + .size__btn {
-  outline: 1px solid $black;
+    &:focus-within + .size__btn {
+      outline: 1px solid $black;
+    }
+  }
 }
