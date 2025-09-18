@@ -43,18 +43,5 @@ export default function initMap() {
       window.myPlacemark.geometry.setCoordinates(coords);
       getAddress(coords);
     });
-
-    const initialAddress = 'г. Санкт-Петербург, пр. Просвещения, д. 99, кв. 152';
-
-    window.ymaps.geocode(initialAddress).then(res => {
-      const coords = res.geoObjects.get(0).geometry.getCoordinates();
-
-      window.myMap.setCenter(coords, 16);
-      window.myPlacemark.geometry.setCoordinates(coords);
-
-      if (addressField) {
-        addressField.value = initialAddress;
-      }
-    });
   });
 }

@@ -4,6 +4,7 @@ export default function initAddressSearch() {
   const searchBtn = document.getElementById('search-address');
   const suggestionsList = document.getElementById("suggestions");
 
+  let activeIndex = -1;
   async function fetchSuggestions(query) {
     if (!query) return;
 
@@ -19,10 +20,12 @@ export default function initAddressSearch() {
 
     const data = await response.json();
     suggestionsList.innerHTML = '';
+    activeIndex = -1;
 
     if (data.suggestions.length === 0) {
       const li = document.createElement("li");
       li.textContent = "Адрес не найден";
+      li.classList.add("suggestions__item");
       suggestionsList.appendChild(li);
     } else {
       data.suggestions.forEach((suggestion, index) => {
@@ -30,23 +33,8 @@ export default function initAddressSearch() {
         li.classList.add('suggestions__item');
         li.textContent = suggestion.value;
 
-        if(index === 0) {
-          li.classList.add('suggestions__item--active');
-        }
-
         li.addEventListener('click', () => {
-          document.querySelectorAll('.suggestions__item').forEach(el => el.classList.remove('suggestions__item--active'));
-          li.classList.add('suggestions__item--active');
-          input.value = suggestion.value;
-          suggestionsList.style.display = 'none';
-
-          const lat = suggestion.data.geo_lat;
-          const lon = suggestion.data.geo_lon;
-
-          if (lat && lon && window.myPlacemark && window.myMap) {
-            window.myPlacemark.geometry.setCoordinates([lat, lon]);
-            window.myMap.setCenter([lat, lon], 16);
-          }
+          selectSuggestion(suggestion);
         });
 
         suggestionsList.appendChild(li);
@@ -54,6 +42,29 @@ export default function initAddressSearch() {
     }
 
     suggestionsList.style.display = "block";
+  }
+
+  function selectSuggestion(suggestion) {
+    input.value = suggestion.value;
+    suggestionsList.style.display = 'none';
+
+    const lat = suggestion.data.geo_lat;
+    const lon = suggestion.data.geo_lon;
+
+    if (lat && lon && window.myPlacemark && window.myMap) {
+      window.myPlacemark.geometry.setCoordinates([lat, lon]);
+      window.myMap.setCenter([lat, lon], 16);
+    }
+  }
+
+  function moveActive(delta) {
+    const items = suggestionsList.querySelectorAll('.suggestions__item');
+    if (!items.length) return;
+
+    activeIndex = (activeIndex + delta + items.length) % items.length;
+
+    items.forEach(el => el.classList.remove('suggestions__item--active'));
+    items[activeIndex].classList.add('suggestions__item--active');
   }
 
   searchBtn.addEventListener('click', () => {
@@ -68,5 +79,48 @@ export default function initAddressSearch() {
     } else {
       suggestionsList.style.display = "none";
     }
+  });
+
+  input.addEventListener('keydown', (e) => {
+    const items = suggestionsList.querySelectorAll('.suggestions__item');
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        moveActive(1);
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        moveActive(-1);
+        break;
+      case 'Enter':
+        if (activeIndex >= 0 && items[activeIndex]) {
+          e.preventDefault();
+          const text = items[activeIndex].textContent;
+          const suggestion = { value: text, data: {} };
+          selectSuggestion(suggestion);
+        }
+        break;
+      case 'Escape':
+        suggestionsList.style.display = 'none';
+        break;
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!input.contains(e.target) && !suggestionsList.contains(e.target)) {
+      suggestionsList.style.display = 'none';
+    }
+  });
+
+  input.addEventListener('blur', (e) => {
+    setTimeout(() => {
+      if (
+        !suggestionsList.contains(document.activeElement) &&
+        document.activeElement !== searchBtn
+      ) {
+        suggestionsList.style.display = 'none';
+      }
+    }, 150);
   });
 }

@@ -1,37 +1,41 @@
 /* в этот файл добавляет скрипты*/
-
+import initCart from './form/render-cart';
+import renderSummary from './form/render-summary';
+import initQty from './form/render-qty';
 import initMap from './map/map';
 import initAddressSearch from './map/adress-search';
-import renderCart from './form/render-cart';
-import renderSummary from './form/render-summary';
-import initPromo from './form/render-promo';
-import { fetchCart } from './api/cart';
-import { fetchPromoCodes } from './api/promo';
-import initQty from './form/render-qty';
+import moveMap from './map/move-map';
 import initRemoveCart from './form/remove-cart';
+import initPromo from './form/render-promo';
 import formSubmit from './form/form';
-import checkCommentValue from './form/render-comment';
 import initBurger from './burger/burger';
-import initMove from './map/move-map';
 import initUpButton from './scroll/scroll';
+import mask from './matrix/mask';
+import checkCommentValue from './form/render-comment';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const [cart, promo] = await Promise.all([
-    fetchCart(),
-    fetchPromoCodes()
-  ]);
+  const cart = [
+    { id: 1, price: 10000, oldPrice: 12000, qty: 2, title:'Утепленная стеганная куртка женская Top Hills' },
+    { id: 2, price: 500, qty: 1 , title: 'Вязанная шапка Zolla' },
+    { id: 3, price: 3000, oldPrice: 4000, qty: 2 , title:'Утепленная стеганная куртка женская Top Hills'}
+  ];
+
+  const promo = {
+    "B6D9FC": { discount: 500, type: "fixed" },
+    "HELLO10": { discount: 10, type: "percent" }
+  };
 
   initMap();
   initAddressSearch();
-  renderCart(cart);
+  moveMap();
+  initBurger();
+  initUpButton();
+  initCart(cart);
   renderSummary(cart);
-  initPromo(promo, cart);
   initQty(cart);
   initRemoveCart(cart);
+  initPromo(cart, promo);
+  formSubmit('form', cart);
+  mask('[name="phone"]');
   checkCommentValue();
-  const formEl = document.querySelector('#form');
-  formSubmit(formEl, cart);
-  initBurger();
-  initMove();
-  initUpButton();
 });

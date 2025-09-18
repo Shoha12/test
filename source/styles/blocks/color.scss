@@ -40,3 +40,7 @@
 .color input:checked + .color__wrapper {
   border: 1px solid $black;
 }
+
+.color input:focus-within + .color__wrapper {
+  outline: 1px solid $black;
+}
