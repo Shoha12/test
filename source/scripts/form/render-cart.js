@@ -14,6 +14,7 @@ export default function initCart(cart) {
     const oldTotal = item.querySelector('.cart-list__old-total');
     const currentTotal = item.querySelector('.cart-list__total');
     const qty = item.querySelector('.cart-list__qty-input');
+    const minusBtn = item.querySelector('.cart-list__qty-btn--minus');
 
     if (oldPrice && product.oldPrice) {
       oldPrice.textContent = product.oldPrice.toLocaleString('ru-RU') + ' ₽';
@@ -25,6 +26,10 @@ export default function initCart(cart) {
 
     if (qty) {
       qty.value = product.qty;
+    }
+
+    if (minusBtn) {
+      minusBtn.disabled = product.qty <= 1;
     }
 
     if (oldTotal && product.oldPrice) {
