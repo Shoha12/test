@@ -105,6 +105,7 @@
   font-weight: 400;
   line-height: 18px;
   font-family: inherit;
+  cursor: pointer;
 
   @media (min-width: $desktop) {
     align-self: start;
@@ -148,6 +149,10 @@
   }
 }
 
+.cart-list__remove:hover .cart-list__icon {
+  color: $grey-1;
+}
+
 .cart-list__img {
   grid-area: img;
 
@@ -171,7 +176,6 @@
 }
 
 .cart-list__descr {
-  margin-top: -8px;
 
   @media (min-width: $desktop) {
     display: flex;
@@ -223,6 +227,7 @@
   font-weight: 700;
   line-height: 21px;
   color: $black;
+  white-space: nowrap;
 }
 
 .cart-list__old-total {
@@ -238,6 +243,7 @@
   font-weight: 700;
   line-height: 21px;
   color: $black;
+  white-space: nowrap;
 }
 
 .cart-list__qty {

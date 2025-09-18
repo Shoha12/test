@@ -1,37 +1,55 @@
-export default function renderSummary(cart, appliedPromo = { code: '', value: 0 }) {
-
-  const discountEl = document.querySelector('.cart__aside-price--discount');
-  const actionEl = document.querySelector('.cart__aside-price--action');
-  const promoEl = document.querySelector('.cart__aside-price--promo');
-  const productsEl = document.querySelector('.cart__aside-price--total');
-  const deliveryEl = document.querySelector('.cart__aside-price--delivery');
-  const totalEls = document.querySelectorAll('.cart__summary-price');
+export default function renderSummary(cart, appliedPromo = null) {
+  const items = document.querySelectorAll('.cart-list__item');
 
   let totalCurrent = 0;
   let totalOld = 0;
 
-  cart.forEach(item => {
-    totalCurrent += item.price * item.qty;
-    totalOld += (item.oldPrice || item.price) * item.qty;
+  items.forEach(item => {
+    const priceEl = item.querySelector(".cart-list__price");
+    const oldPriceEl = item.querySelector(".cart-list__old-price");
+    const qtyInput = item.querySelector(".cart-list__qty-input");
+
+    const price = parseInt(priceEl?.textContent.replace(/\D/g, ""), 10) || 0;
+    const oldPrice = parseInt(oldPriceEl?.textContent.replace(/\D/g, ""), 10) || price;
+    const qty = parseInt(qtyInput?.value, 10) || 1;
+
+    totalCurrent += price * qty;
+    totalOld += oldPrice * qty;
   });
 
-  const promoCode = appliedPromo.code || '';
-  const promoValue = appliedPromo.value || 0;
+  let promoValue = 0;
+  if (appliedPromo) {
+    if (appliedPromo.type === "percent") {
+      promoValue = Math.floor(totalCurrent * (appliedPromo.discount / 100));
+    } else if (appliedPromo.type === "fixed") {
+      promoValue = appliedPromo.discount;
+    }
+  }
+
+
   const action = totalOld - totalCurrent;
-  const discount = action + promoValue;
+  const discount = action + promoValue || 0;
   const delivery = 200;
-  const grandTotal = totalCurrent + delivery - promoValue;
+  const grandTotal = totalCurrent - promoValue + delivery;
 
+  document.querySelector(".order-summary-price--total").textContent =
+    `${totalCurrent.toLocaleString('ru-RU')} ₽`;
 
-  if (discountEl) discountEl.textContent = discount > 0 ? `− ${discount.toLocaleString()} ₽` : '0 ₽';
-  if (actionEl) actionEl.textContent   = action > 0 ? `− ${action.toLocaleString()} ₽` : '0 ₽';
-  if (promoEl) promoEl.textContent    = promoValue > 0 ? `− ${promoValue.toLocaleString()} ₽` : '0 ₽';
-  if (productsEl) productsEl.textContent = totalCurrent.toLocaleString() + ' ₽';
-  if (deliveryEl) deliveryEl.textContent = delivery.toLocaleString() + ' ₽';
+  document.querySelector(".order-summary-price--discount").textContent =
+    action > 0 ? `− ${discount.toLocaleString('ru-RU')} ₽` : "0 ₽";
 
-  totalEls.forEach(el => {
-    el.textContent = grandTotal.toLocaleString() + ' ₽';
+  document.querySelector(".order-summary-price--action").textContent =
+    action > 0 ? `− ${action.toLocaleString('ru-RU')} ₽` : "0 ₽";
+
+  document.querySelector(".order-summary-price--promo").textContent =
+    promoValue > 0 ? `− ${promoValue.toLocaleString('ru-RU')} ₽` : "0 ₽";
+
+  document.querySelector(".order-summary-price--delivery").textContent =
+    `${delivery.toLocaleString('ru-RU')} ₽`;
+
+  document.querySelectorAll(".order-summary__summary-price--bold").forEach(el => {
+    el.textContent = `${grandTotal.toLocaleString('ru-RU')} ₽`;
   });
 
-  return { promoCode, promoValue, grandTotal, discount, action, delivery };
+  return { totalCurrent, action, promoValue, delivery, grandTotal, promoCode: appliedPromo ? appliedPromo.code : null };
 }

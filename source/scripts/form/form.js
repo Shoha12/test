@@ -1,27 +1,29 @@
 import validateFormInputs from "./validate-form";
-import { collectCartData } from "./render-cart";
+import renderCart from "./render-cart";
 import renderSummary from "./render-summary";
 import showOverlay from "../utils";
+import collectDataList from "../data/data";
 
-export default function formSubmit(form, cart) {
+export default function formSubmit(selector, cart, appliedPromo = null) {
+  const form = document.getElementById(selector);
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const promoInput = document.querySelector("#promo");
-    const promoMessage = document.querySelector(".cart__promo-message");
-    const promoBtn = document.querySelector(".cart__promo-button");
-    const submitButton = document.querySelector('.cart__promo-btn');
+    const promoMessage = document.querySelector(".order-summary__promo-message");
+    const promoBtn = document.querySelector(".order-summary__promo-button");
+    const submitButton = document.querySelector('.order-summary__promo-btn');
 
-    const cartData = collectCartData(cart);
-    const summaryData = renderSummary(cart);
+    const cartData = collectDataList(cart);
+    const summaryData = renderSummary(cart, window.appliedPromo);
 
-    function clearForm(form, promoInput, promoMessage, promoBtn) {
+    function clearForm() {
       if (promoInput) promoInput.value = "";
       if (promoMessage) promoMessage.textContent = "";
       if (promoBtn) promoBtn.classList.remove("visible");
       form.reset();
     }
-
 
     const submitButtonText = {
       IDLE: 'Оформить заказ',
@@ -34,35 +36,29 @@ export default function formSubmit(form, cart) {
     };
 
     let valid = validateFormInputs(form);
-
     if (!valid) {
       const firstError = form.querySelector(".error");
       if (firstError) {
         firstError.scrollIntoView({ behavior: "smooth", block: "center" });
-        const input = firstError
-          .closest(".form__field")
-          .querySelector("input, textarea");
+        const input = firstError.closest(".form__field")?.querySelector("input, textarea");
         if (input) input.focus();
       }
       return;
     }
 
-    const data = new FormData(form);
-    data.append("cart-info", JSON.stringify(cartData));
-    data.append("summary-data", JSON.stringify(summaryData));
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload["cart-info"] = cartData;
+    payload["summary-data"] = summaryData;
 
-    for (let [key, value] of data.entries()) {
-      console.log(key, value);
-    }
+    console.log("Отправляем:", payload);
 
     setSubmitButtonState(true);
 
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     })
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
@@ -70,12 +66,13 @@ export default function formSubmit(form, cart) {
       })
       .then((result) => {
         console.log("Успешно отправлено:", result);
-        clearForm(form, promoInput, promoMessage, promoBtn);
-        showOverlay("#order-overlay", 'Ваш заказ принят!');
+        clearForm();
+        showOverlay("#order-overlay", "Ваш заказ принят!");
+        document.querySelector('.order-summary__promo-remove').style.display = 'none';
       })
       .catch((err) => {
         console.error("Ошибка при отправке:", err);
-        showOverlay("#order-overlay", 'Что-то пошло не так, попробуйте ещё раз');
+        showOverlay("#order-overlay", "Что-то пошло не так, попробуйте ещё раз");
       })
       .finally(() => {
         setSubmitButtonState(false);

@@ -1,15 +1,15 @@
 .up {
   display: none;
-  position: absolute;
+  position: fixed;
   bottom: 100px;
   right: 16px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 
   @media (min-width: $desktop) {
-    bottom: auto;
-    top: -50px;
-    right: 125px;
+    bottom: 50px;
+    right: 50px;
   }
 }
 
@@ -24,4 +24,8 @@
   }
 }
 
+
+.up:hover .up-icon {
+  color: $grey-1;
+}
 

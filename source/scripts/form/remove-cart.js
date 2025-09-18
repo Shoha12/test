@@ -45,7 +45,7 @@ export default function initRemoveCart(cart) {
       case "restore":
         product.removed = false;
         itemEl.innerHTML = originalTemplates[id];
-        itemEl.classList.remove('cart-list__item--removed')
+        itemEl.classList.remove('cart-list__item--removed');
         break;
 
       case "remove-final":
