@@ -8,7 +8,7 @@ export default function validateFormInputs(form) {
 
   let isValid = true;
 
-  const namePattern = /^[A-Za-zА-Яа-яЁё]{2,}$/;
+  const namePattern = /^[A-Za-zА-Яа-яЁё]{2,}(?:[ -][A-Za-zА-Яа-яЁё]{2,})*$/;
   const phonePattern = /^\+7\s?\(?\d{3}\)?\s?\d{3}\s?\d{2}\s?\d{2}$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[A-Za-zА-Яа-яЁё\u0400-\u04FF0-9-]{2,}$/u;
 

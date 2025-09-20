@@ -1,6 +1,6 @@
 export default function checkCommentValue() {
   const commentArea = document.getElementById('comment');
-  const hint = document.querySelector('.form__comment-hint'); // <small>
+  const hint = document.querySelector('.form__comment-hint');
   const maxLength = 142;
 
   function updateHint() {

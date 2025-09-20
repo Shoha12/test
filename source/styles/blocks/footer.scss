@@ -67,7 +67,7 @@
       padding: 13px 130px 13px 20px;
     }
 
-    &:focus ~ .footer__btn .footer__icon-text {
+    &:not(:placeholder-shown) ~ .footer__btn .footer__icon-text {
       display: inline;
     }
   }

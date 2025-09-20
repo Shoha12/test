@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "title": "Утепленная стеганная куртка женская Top Hills",
+    "article": "512-05",
+    "season": "Осень-зима",
+    "images": {
+      "desktop": {
+        "webp": {
+          "1x": "images/jacket-desktop2x@1x.webp",
+          "2x": "images/jacket-desktop2x@2x.webp"
+        },
+        "png": {
+          "1x": "images/jacket-desktop2x@1x.png",
+          "2x": "images/jacket-desktop2x@2x.png"
+        }
+      },
+      "mobile": {
+        "webp": {
+          "1x": "images/jacket-mobile2x@1x.webp",
+          "2x": "images/jacket-mobile2x@2x.webp"
+        },
+        "png": {
+          "1x": "images/jacket-mobile2x@1x.png",
+          "2x": "images/jacket-mobile2x@2x.png"
+        }
+      }
+    },
+    "price": 10000,
+    "oldPrice": 12000,
+    "qty": 2,
+    "removed": false,
+    "sizes": [
+      { "value": "XS", "checked": false, "disabled": false },
+      { "value": "S", "checked": false, "disabled": false },
+      { "value": "M", "checked": true, "disabled": false },
+      { "value": "L", "checked": false, "disabled": false },
+      { "value": "XL", "checked": false, "disabled": false }
+    ],
+    "colors": [
+      { "value": "black", "checked": true },
+      { "value": "blue", "checked": false },
+      { "value": "brown", "checked": false }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Утепленная стеганная куртка женская Top Hills",
+    "article": "512-05",
+    "season": "Осень-зима",
+    "images": {
+      "desktop": {
+        "webp": {
+          "1x": "images/jacket-desktop2x@1x.webp",
+          "2x": "images/jacket-desktop2x@2x.webp"
+        },
+        "png": {
+          "1x": "images/jacket-desktop2x@1x.png",
+          "2x": "images/jacket-desktop2x@2x.png"
+        }
+      },
+      "mobile": {
+        "webp": {
+          "1x": "images/jacket-mobile2x@1x.webp",
+          "2x": "images/jacket-mobile2x@2x.webp"
+        },
+        "png": {
+          "1x": "images/jacket-mobile2x@1x.png",
+          "2x": "images/jacket-mobile2x@2x.png"
+        }
+      }
+    },
+    "price": 10000,
+    "oldPrice": 12000,
+    "qty": 1,
+    "removed": false,
+    "sizes": [
+      { "value": "XS", "checked": false, "disabled": false },
+      { "value": "S", "checked": false, "disabled": false },
+      { "value": "M", "checked": true, "disabled": false },
+      { "value": "L", "checked": false, "disabled": false },
+      { "value": "XL", "checked": false, "disabled": false }
+    ],
+    "colors": [
+      { "value": "black", "checked": true },
+      { "value": "blue", "checked": false },
+      { "value": "brown", "checked": false }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Вязанная шапка Zolla",
+    "article": "891-256",
+    "season": "Демисезон",
+    "images": {
+      "desktop": {
+        "webp": {
+          "1x": "images/hat-desktop2x@1x.webp",
+          "2x": "images/hat-desktop2x@2x.webp"
+        },
+        "png": {
+          "1x": "images/hat-desktop2x@1x.png",
+          "2x": "images/hat-desktop2x@2x.png"
+        }
+      },
+      "mobile": {
+        "webp": {
+          "1x": "images/hat-mobile2x@1x.webp",
+          "2x": "images/hat-mobile2x@2x.webp"
+        },
+        "png": {
+          "1x": "images/hat-mobile2x@1x.png",
+          "2x": "images/hat-mobile2x@2x.png"
+        }
+      }
+    },
+    "price": 500,
+    "oldPrice": null,
+    "qty": 1,
+    "removed": false,
+    "sizes": [
+      { "value": "XS", "checked": false, "disabled": false },
+      { "value": "S", "checked": true, "disabled": false },
+      { "value": "M", "checked": false, "disabled": false },
+      { "value": "L", "checked": false, "disabled": true },
+      { "value": "XL", "checked": false, "disabled": true }
+    ],
+    "colors": [
+      { "value": "black", "checked": true }
+    ]
+  }
+]

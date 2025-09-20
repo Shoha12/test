@@ -1,15 +1,12 @@
-.order-overlay {
+.overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
-  &.active {
-    display: flex;
-  }
+  opacity: 0;
 
   &__content {
     background: $white;
@@ -32,5 +29,11 @@
     line-height: 21px;
     font-family: inherit;
     margin-top: 10px;
+    cursor: pointer;
+  }
+
+  &--active {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

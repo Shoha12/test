@@ -1,4 +1,5 @@
 /* в этот файл добавляет скрипты*/
+import { cartData, promoData } from './api/api';
 import initCart from './form/render-cart';
 import renderSummary from './form/render-summary';
 import initQty from './form/render-qty';
@@ -14,16 +15,9 @@ import mask from './matrix/mask';
 import checkCommentValue from './form/render-comment';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const cart = [
-    { id: 1, price: 10000, oldPrice: 12000, qty: 2, title:'Утепленная стеганная куртка женская Top Hills' },
-    { id: 2, price: 500, qty: 1 , title: 'Вязанная шапка Zolla' },
-    { id: 3, price: 3000, oldPrice: 4000, qty: 2 , title:'Утепленная стеганная куртка женская Top Hills'}
-  ];
 
-  const promo = {
-    "B6D9FC": { discount: 500, type: "fixed" },
-    "HELLO10": { discount: 10, type: "percent" }
-  };
+  const promo = await promoData();
+  const cart = await cartData();
 
   initMap();
   initAddressSearch();

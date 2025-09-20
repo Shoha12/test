@@ -76,7 +76,6 @@
                 <span class="burger__line"></span>
                 <span class="burger__line"></span>
             </button>
-
             <div class="mobile-menu" id="mobile">
               <div class="mobile-menu__content">
                 <button class="mobile-menu__close" type="button">
@@ -153,290 +152,7 @@
                   </div>
                   <span class="cart__descr title">3 товара <br> на сумму <span class="cart__summary-price">25 000 ₽</span></span>
 
-                  <ul class="cart-list">
-                    <li class="cart-list__item" data-id="1">
-                      <picture>
-                        <source media="(min-width:1200px)" width="130" height="160" type="image/webp" srcset="images/jacket-desktop2x@1x.webp 1x, images/jacket-desktop2x@2x.webp 2x">
-                        <source media="(min-width:768px)" width="90" height="111" type="image/webp" srcset="images/jacket-mobile2x@1x.webp 1x, images/jacket-mobile2x@2x.webp 2x">
-                        <source media="(min-width:1200px)" width="130" height="160" type="image/png" srcset="images/jacket-desktop2x@1x.png 1x, images/jacket-desktop2x@2x.png 2x">
-                        <source media="(min-width:768px)" width="90" height="111" type="image/png" srcset="images/jacket-mobile2x@1x.png 1x, images/jacket-mobile2x@2x.png 2x">
-                        <img class="cart-list__img" src="images/jacket-mobile2x@1x.png" srcset="images/jacket-mobile2x@2x.png 2x" alt="Куртка" width="90" height="111">
-                      </picture>
-                      <div class="cart-list__main">
-                        <div class="cart-list__header">
-                          <h3 class="cart-list__title">Утепленная стеганная куртка женская Top Hills</h3>
-                          <button class="cart-list__remove" data-action="remove" type="button">
-                            <span class="visually-hidden">Удалить товар</span>
-                            <svg class="cart-list__icon" width="22" height="22">
-                              <use href="icons/stack.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="cart-list__body">
-                          <div class="cart-list__descr">
-                            <p class="cart-list__article">Артикул <span class="cart-list__mean">512-05</span></p>
-                            <p class="cart-list__article">Сезон <span class="cart-list__mean">Осень-зима</span></p>
-                          </div>
-
-                          <fieldset class="cart-list__sizes">
-                            <legend class="visually-hidden">Выберите размер</legend>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-1" value="XS">
-                              <span class="size__btn">XS</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-1" value="S">
-                              <span class="size__btn">S</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-1" value="M" checked>
-                              <span class="size__btn">M</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-1" value="L">
-                              <span class="size__btn">L</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-1" value="XL">
-                              <span class="size__btn">XL</span>
-                            </label>
-                          </fieldset>
-
-                          <fieldset class="cart-list__colors">
-                            <legend class="visually-hidden">Выберите цвет</legend>
-
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-1" value="black" checked>
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--black"></span>
-                              </span>
-                            </label>
-
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-1" value="blue">
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--blue"></span>
-                              </span>
-                            </label>
-
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-1" value="brown">
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--brown"></span>
-                              </span>
-                            </label>
-                          </fieldset>
-                        </div>
-                      </div>
-                      <div class="cart-list__prices">
-                        <div class="cart-list__price-wrapper">
-                          <span class="cart-list__old-price">12 000 ₽</span>
-                          <span class="cart-list__price">10 000 ₽</span>
-                        </div>
-                        <div class="cart-list__qty">
-                          <button class="cart-list__qty-btn cart-list__qty-btn--minus" type="button">
-                            <span class="visually-hidden">Уменьшить количество товара</span>
-                            <svg class="cart-list__qty-icon" width="32" height="32">
-                              <use href="icons/stack.svg#minus"></use>
-                            </svg>
-                          </button>
-                          <label class="visually-hidden" for="product-qty-1">Количество товара</label>
-                          <input class="cart-list__qty-input" type="text" name="qty-1" id="product-qty-1" value="2">
-                          <button class="cart-list__qty-btn cart-list__qty-btn--plus" type="button">
-                            <span class="visually-hidden">Увеличить кол-во товара</span>
-                            <svg class="cart-list__qty-icon" width="32" height="32">
-                              <use href="icons/stack.svg#plus"></use>
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="cart-list__price-wrapper">
-                          <span class="cart-list__old-total">24 000 ₽</span>
-                          <span class="cart-list__total">20 000 ₽</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="cart-list__item" data-id="3">
-                      <picture>
-                        <source media="(min-width:1200px)" width="130" height="160" type="image/webp" srcset="images/jacket-desktop2x@1x.webp 1x, images/jacket-desktop2x@2x.webp 2x">
-                        <source media="(min-width:768px)" width="90" height="111" type="image/webp" srcset="images/jacket-mobile2x@1x.webp 1x, images/jacket-mobile2x@2x.webp 2x">
-                        <source media="(min-width:1200px)" width="130" height="160" type="image/png" srcset="images/jacket-desktop2x@1x.png 1x, images/jacket-desktop2x@2x.png 2x">
-                        <source media="(min-width:768px)" width="90" height="111" type="image/png" srcset="images/jacket-mobile2x@1x.png 1x, images/jacket-mobile2x@2x.png 2x">
-                        <img class="cart-list__img" src="images/jacket-mobile2x@1x.png" srcset="images/jacket-mobile2x@2x.png 2x" alt="Куртка" width="90" height="111">
-                      </picture>
-                      <div class="cart-list__main">
-                        <div class="cart-list__header">
-                          <h3 class="cart-list__title">Утепленная стеганная куртка женская Top Hills</h3>
-                          <button class="cart-list__remove" data-action="remove" type="button">
-                            <span class="visually-hidden">Удалить товар</span>
-                            <svg class="cart-list__icon" width="32" height="32">
-                              <use href="icons/stack.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="cart-list__body">
-                          <div class="cart-list__descr">
-                            <p class="cart-list__article">Артикул <span class="cart-list__mean">512-05</span></p>
-                            <p class="cart-list__article">Сезон <span class="cart-list__mean">Осень-зима</span></p>
-                          </div>
-
-                          <fieldset class="cart-list__sizes">
-                            <legend class="visually-hidden">Выберите размер</legend>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-3" value="XS">
-                              <span class="size__btn">XS</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-3" value="S">
-                              <span class="size__btn">S</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-3" value="M" checked>
-                              <span class="size__btn">M</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-3" value="L">
-                              <span class="size__btn">L</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-3" value="XL">
-                              <span class="size__btn">XL</span>
-                            </label>
-                          </fieldset>
-
-                          <fieldset class="cart-list__colors">
-                            <legend class="visually-hidden">Выберите цвет</legend>
-
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-3" value="black" checked>
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--black"></span>
-                              </span>
-                            </label>
-
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-3" value="blue">
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--blue"></span>
-                              </span>
-                            </label>
-
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-3" value="brown">
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--brown"></span>
-                              </span>
-                            </label>
-                          </fieldset>
-                        </div>
-                      </div>
-                      <div class="cart-list__prices">
-                        <div class="cart-list__price-wrapper">
-                          <span class="cart-list__old-price">12 000 ₽</span>
-                          <span class="cart-list__price">10 000 ₽</span>
-                        </div>
-                        <div class="cart-list__qty">
-                          <button class="cart-list__qty-btn cart-list__qty-btn--minus" type="button">
-                            <span class="visually-hidden">Уменьшить кол-во товара</span>
-                            <svg class="cart-list__qty-icon" width="32" height="32">
-                              <use href="icons/stack.svg#minus"></use>
-                            </svg>
-                          </button>
-                          <label class="visually-hidden" for="product-qty-3">Количество товара</label>
-                          <input class="cart-list__qty-input" type="text" name="qty-3" id="product-qty-3" value="1">
-                          <button class="cart-list__qty-btn cart-list__qty-btn--plus" type="button">
-                            <span class="visually-hidden">Увеличить кол-во товара</span>
-                            <svg class="cart-list__qty-icon" width="32" height="32">
-                              <use href="icons/stack.svg#plus"></use>
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="cart-list__price-wrapper">
-                          <span class="cart-list__old-total">24 000 ₽</span>
-                          <span class="cart-list__total">20 000 ₽</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="cart-list__item" data-id="2">
-                      <picture>
-                        <source media="(min-width:1200px)" width="130" height="160" type="image/webp" srcset="images/hat-desktop2x@1x.webp 1x, images/hat-desktop2x@2x.webp 2x">
-                        <source media="(min-width:768px)" width="90" height="111" type="image/webp" srcset="images/hat-mobile2x@1x.webp 1x, images/hat-mobile2x@2x.webp 2x">
-                        <source media="(min-width:1200px)" width="130" height="160" type="image/png" srcset="images/hat-desktop2x@1x.png 1x, images/hat-desktop2x@2x.png 2x">
-                        <source media="(min-width:768px)" width="90" height="111" type="image/png" srcset="images/hat-mobile2x@1x.png 1x, images/hat-mobile2x@2x.png 2x">
-                        <img class="cart-list__img" src="images/hat-mobile2x@1x.png" srcset="images/hat-mobile2x@2x.png 2x" alt="Шапка" width="90" height="111">
-                      </picture>
-                      <div class="cart-list__main">
-                        <div class="cart-list__header">
-                          <h3 class="cart-list__title">Вязанная шапка Zolla</h3>
-                          <button class="cart-list__remove" data-action="remove" type="button">
-                            <span class="visually-hidden">Удалить товар</span>
-                            <svg class="cart-list__icon" width="22" height="22">
-                              <use href="icons/stack.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                        <div class="cart-list__body">
-                          <div class="cart-list__descr">
-                            <p class="cart-list__article">Артикул <span class="cart-list__mean">891-256</span></p>
-                            <p class="cart-list__article">Сезон <span class="cart-list__mean">Демисезон</span></p>
-                          </div>
-
-                          <fieldset class="cart-list__sizes">
-                            <legend class="visually-hidden">Выберите размер</legend>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-2" value="XS">
-                              <span class="size__btn">XS</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-2" value="S" checked>
-                              <span class="size__btn">S</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-2" value="M">
-                              <span class="size__btn">M</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-2" value="L" disabled>
-                              <span class="size__btn">L</span>
-                            </label>
-                            <label class="size">
-                              <input class="visually-hidden" type="radio" name="size-2" value="XL" disabled>
-                              <span class="size__btn">XL</span>
-                            </label>
-                          </fieldset>
-
-                          <fieldset class="cart-list__colors">
-                            <legend class="visually-hidden">Выберите цвет</legend>
-                            <label class="color">
-                              <input class="visually-hidden" type="radio" name="color-2" value="black" checked>
-                              <span class="color__wrapper">
-                                <span class="color__circle color__circle--black"></span>
-                              </span>
-                            </label>
-                          </fieldset>
-                        </div>
-                      </div>
-                      <div class="cart-list__prices">
-                        <span class="cart-list__price">500 ₽</span>
-                        <div class="cart-list__qty">
-                          <button class="cart-list__qty-btn cart-list__qty-btn--minus" type="button">
-                            <span class="visually-hidden">увеличить количество товара</span>
-                            <svg class="cart-list__qty-icon" width="32" height="32">
-                              <use href="icons/stack.svg#minus"></use>
-                            </svg>
-                          </button>
-                          <label class="visually-hidden" for="product-qty-2">1</label>
-                          <input class="cart-list__qty-input" type="text" name="qty-2" id="product-qty-2" value="1">
-                          <button class="cart-list__qty-btn cart-list__qty-btn--plus" type="button">
-                            <span class="visually-hidden">увеличить количество товара</span>
-                            <svg class="cart-list__qty-icon" width="32" height="32">
-                              <use href="icons/stack.svg#plus"></use>
-                            </svg>
-                          </button>
-                        </div>
-                        <span class="cart-list__total">500 ₽</span>
-                      </div>
-                    </li>
-                  </ul>
+                  <ul class="cart-list" id="cart"></ul>
                 </div>
               </section>
 
@@ -538,7 +254,6 @@
                       </button>
                       <ul class="suggestions" id="suggestions"></ul>
                     </div>
-                    <div class="form__map" id="map"></div>
                   </div>
 
                   <fieldset class="form__payment">
@@ -674,19 +389,72 @@
         </div>
       </footer>
 
+      <template id="cart-item-template">
+        <li class="cart-list__item" data-id="">
+          <picture></picture>
+          <div class="cart-list__main">
+            <div class="cart-list__header">
+              <h3 class="cart-list__title"></h3>
+              <button class="cart-list__remove" data-action="remove" type="button">
+                <span class="visually-hidden">Удалить товар</span>
+                <svg class="cart-list__icon" width="22" height="22">
+                  <use href="icons/stack.svg#close"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="cart-list__body">
+              <div class="cart-list__descr">
+                <p class="cart-list__article">Артикул <span class="cart-list__mean"></span></p>
+                <p class="cart-list__article">Сезон <span class="cart-list__mean"></span></p>
+              </div>
+
+              <fieldset class="cart-list__sizes">
+                <legend class="visually-hidden">Выберите размер</legend>
+              </fieldset>
+
+              <fieldset class="cart-list__colors">
+                <legend class="visually-hidden">Выберите цвет</legend>
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="cart-list__prices">
+            <div class="cart-list__price-wrapper">
+              <span class="cart-list__old-price"></span>
+              <span class="cart-list__price"></span>
+            </div>
+            <div class="cart-list__qty">
+              <button class="cart-list__qty-btn cart-list__qty-btn--minus" type="button" data-action="minus">
+                <span class="visually-hidden">Уменьшить количество товара</span>
+                <svg class="cart-list__qty-icon" width="32" height="32">
+                  <use href="icons/stack.svg#minus"></use>
+                </svg>
+              </button>
+              <label class="visually-hidden" for="qty-id">Количество товара</label>
+              <input class="cart-list__qty-input" type="text" value="">
+              <button class="cart-list__qty-btn cart-list__qty-btn--plus" type="button" data-action="plus">
+                <span class="visually-hidden">Увеличить кол-во товара</span>
+                <svg class="cart-list__qty-icon" width="32" height="32">
+                  <use href="icons/stack.svg#plus"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="cart-list__price-wrapper">
+              <span class="cart-list__old-total"></span>
+              <span class="cart-list__total"></span>
+            </div>
+          </div>
+        </li>
+      </template>
+      <div class="map" id="map"></div>
       <button id="up" class="up" type="button">
           <svg class="up-icon" width="40" height="40">
             <use href="icons/stack.svg#Up"></use>
           </svg>
       </button>
-
-      <div class="order-overlay" id="order-overlay">
-        <div class="order-overlay__content">
-          <h2 class="order-overlay__message">Ваш заказ принят!</h2>
-          <button class="order-overlay__close" type="button">Закрыть</button>
-        </div>
-      </div>
-      <div class="overlay" id="overlay"></div>
+      <template id="overlay-template">
+        <div class="overlay"></div>
+      </template>
     <script defer src="https://api-maps.yandex.ru/2.1/?apikey=b741650d-aeca-472d-a761-ce8550b60bb1&lang=ru_RU"></script>
     <script src="scripts/index.js" type="module"></script>
   </body>

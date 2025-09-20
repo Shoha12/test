@@ -2,7 +2,6 @@ function moveMapToMain(map, form) {
   if (!map || !form) return;
   if (form.nextElementSibling !== map) {
     form.insertAdjacentElement('afterend', map);
-    console.log('Карта в main');
   }
 }
 
@@ -10,7 +9,6 @@ function moveMapToContacts(map, contacts) {
   if (!map || !contacts) return;
   if (!contacts.contains(map)) {
     contacts.appendChild(map);
-    console.log('Карта в contacts');
   }
 }
 
