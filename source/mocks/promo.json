@@ -1,0 +1,6 @@
+{
+  "B6D9FC": { "discount": 500, "type": "fixed" },
+  "HELLO10": { "discount": 10, "type": "percent" },
+  "SALE20": { "discount": 20, "type": "percent" },
+  "500OFF": { "discount": 500, "type": "fixed" }
+}

@@ -1,10 +1,9 @@
 import validateFormInputs from "./validate-form";
-import renderCart from "./render-cart";
 import renderSummary from "./render-summary";
-import showOverlay from "../utils";
+import { showOverlay } from "../utils";
 import collectDataList from "../data/data";
 
-export default function formSubmit(selector, cart, appliedPromo = null) {
+export default function formSubmit(selector, cart) {
   const form = document.getElementById(selector);
 
   form.addEventListener("submit", (e) => {
@@ -67,12 +66,12 @@ export default function formSubmit(selector, cart, appliedPromo = null) {
       .then((result) => {
         console.log("Успешно отправлено:", result);
         clearForm();
-        showOverlay("#order-overlay", "Ваш заказ принят!");
+        showOverlay("Ваш заказ принят!");
         document.querySelector('.order-summary__promo-remove').style.display = 'none';
       })
       .catch((err) => {
         console.error("Ошибка при отправке:", err);
-        showOverlay("#order-overlay", "Что-то пошло не так, попробуйте ещё раз");
+        showOverlay("Что-то пошло не так, попробуйте ещё раз");
       })
       .finally(() => {
         setSubmitButtonState(false);

@@ -9,7 +9,7 @@
 
   @media (min-width: $desktop) {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 0;
   }
 
   &__main {
@@ -64,6 +64,7 @@
     }
 
     @media (min-width: $desktop) {
+      padding: 25px 0;
       position: relative;
       grid-template-columns: 130px 197px 371px 22px;
       gap: 10px;
@@ -75,6 +76,10 @@
     }
 
     &--removed {
+      display: block;
+    }
+
+    &--no-grid {
       display: block;
     }
   }
@@ -123,6 +128,7 @@
   }
 
   &__icon {
+    transition: all 0.3s ease;
     width: 22px;
     height: 22px;
   }
@@ -142,7 +148,7 @@
 
     &-final {
       @media (min-width: $desktop) {
-        top: 30px;
+        top: 37px;
         right: 5px;
       }
     }
@@ -233,6 +239,8 @@
     font-weight: 400;
     line-height: 15px;
     text-decoration-line: line-through;
+    word-break: break-all;
+    white-space: normal;
   }
 
   &__total {
@@ -240,7 +248,8 @@
     font-weight: 700;
     line-height: 21px;
     color: $black;
-    white-space: nowrap;
+    word-break: break-all;
+    white-space: normal;
   }
 
   &__qty {
@@ -256,6 +265,7 @@
     &-icon {
       width: 32px;
       height: 32px;
+      transition: all 0.3s ease;
     }
 
     &-input {

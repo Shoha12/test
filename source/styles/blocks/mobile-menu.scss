@@ -8,7 +8,7 @@
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
   transition: transform 0.3s ease;
-  z-index: 1000;
+  z-index: 1001;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,21 @@
 
   &.active {
     transform: translateX(0);
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   &__close {
